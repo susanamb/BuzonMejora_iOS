@@ -1,0 +1,30 @@
+//
+//  Pantalla4ViewController.swift
+//  Prueba de buzon
+//
+//  Created by Jonathan Daniel Hernandez Vega on 7/7/21.
+//  Copyright © 2021 Jonathan Daniel Hernandez Vega. All rights reserved.
+//
+
+import UIKit
+
+class Pantalla4ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
