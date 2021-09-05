@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 
-var folio = "12345abc"
 var ref: DatabaseReference!
 
 
@@ -213,24 +212,36 @@ class Pantalla2ViewController: UIViewController {
             label.text = "No dejes campos vacios"
         }
         else {
+            let now = Date()
+
+            let formatter = DateFormatter()
+
+            formatter.timeZone = TimeZone.current
+
+            formatter.dateFormat = "dd/MM/yyyy"
+
+            let date = formatter.string(from: now)
+            
             let rLetter = "QWERTYUIOPLKJHGFDSAZXCVBNM"
             
             var f1 = ""
-            for _ in 0 ..< 26 {
+            for _ in 0 ..< 1 {
                     f1.append(rLetter.randomElement()!)
                 }
             
             let f2 = motivo1.prefix(1)
             let f4 = asunto1.prefix(2)
-            let folio = f1 + f2 + f4
+            let folio = (f1 + f2 + f4).uppercased()
             
-            self.ref.child("Quejas y Sugerencias/\(folio)/asunto").setValue(asunto1)
-            self.ref.child("Quejas y Sugerencias/\(folio)/motivo").setValue(motivo1)
-            self.ref.child("Quejas y Sugerencias/\(folio)/comentario").setValue(contenido)
+            self.ref.child("Quejas y Sugerencias/\(folio)/Asunto").setValue(asunto1)
+            self.ref.child("Quejas y Sugerencias/\(folio)/Categoria").setValue(motivo1)
+            self.ref.child("Quejas y Sugerencias/\(folio)/Comentario").setValue(contenido)
             if !correo.isEmpty {
-                self.ref.child("Quejas y Sugerencias/\(folio)/correo").setValue(correo)
+                self.ref.child("Quejas y Sugerencias/\(folio)/Correo").setValue(correo)
 
             }
+            self.ref.child("Quejas y Sugerencias/\(folio)/Fecha").setValue(date)
+            self.ref.child("Quejas y Sugerencias/\(folio)/Status").setValue("Pendiente, sin leer")
 
 
             
