@@ -10,21 +10,21 @@ import UIKit
 
 class Pantalla4ViewController: UIViewController {
 
+    
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var boton1: UIButton!
+    @IBOutlet weak var textview: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        boton1.layer.cornerRadius=9 //boton personalizado
+      
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func action(_ sender: Any) {
+        textview.text = "Hola, gracias por tu comentario, si van a tener acto academico"
     }
-    */
+    
 
 }

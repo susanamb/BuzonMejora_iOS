@@ -1,0 +1,6 @@
+framework module Pods_BuzondeMejora {
+  umbrella header "Pods-BuzondeMejora-umbrella.h"
+
+  export *
+  module * { export * }
+}
