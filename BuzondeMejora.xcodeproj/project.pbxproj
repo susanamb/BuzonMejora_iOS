@@ -10,8 +10,8 @@
 		08F877D626E43E7F00E36C61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08F877D526E43E7F00E36C61 /* GoogleService-Info.plist */; };
 		08F877D726E43E7F00E36C61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08F877D526E43E7F00E36C61 /* GoogleService-Info.plist */; };
 		08F877D826E43E7F00E36C61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08F877D526E43E7F00E36C61 /* GoogleService-Info.plist */; };
-		0B3213662695029500D1C983 /* Pantalla3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3213652695029400D1C983 /* Pantalla3ViewController.swift */; };
-		0B3C54DC2695E4AF0002219A /* Pantalla4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C54DB2695E4AF0002219A /* Pantalla4ViewController.swift */; };
+		0B3213662695029500D1C983 /* FolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3213652695029400D1C983 /* FolioViewController.swift */; };
+		0B3C54DC2695E4AF0002219A /* ConsultaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C54DB2695E4AF0002219A /* ConsultaViewController.swift */; };
 		0B43FA7E2693CD300025F60D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B43FA7D2693CD300025F60D /* AppDelegate.swift */; };
 		0B43FA802693CD300025F60D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B43FA7F2693CD300025F60D /* SceneDelegate.swift */; };
 		0B43FA822693CD300025F60D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B43FA812693CD300025F60D /* ViewController.swift */; };
@@ -20,7 +20,7 @@
 		0B43FA8A2693CD300025F60D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B43FA882693CD300025F60D /* LaunchScreen.storyboard */; };
 		0B43FA952693CD310025F60D /* Prueba_de_buzonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B43FA942693CD310025F60D /* Prueba_de_buzonTests.swift */; };
 		0B43FAA02693CD310025F60D /* Prueba_de_buzonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B43FA9F2693CD310025F60D /* Prueba_de_buzonUITests.swift */; };
-		0B52557126949F6C00C74BBC /* Pantalla2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52557026949F6C00C74BBC /* Pantalla2ViewController.swift */; };
+		0B52557126949F6C00C74BBC /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52557026949F6C00C74BBC /* FormViewController.swift */; };
 		0BB45B2F26DBD5FE008C7D7E /* Pantalla2ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB45B2E26DBD5FE008C7D7E /* Pantalla2ViewController2.swift */; };
 		189AE64287F46B18163B9995 /* Pods_BuzondeMejora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E995C4D7B5B336B30C4D18 /* Pods_BuzondeMejora.framework */; };
 		20C280406608EEE4AB61924E /* Pods_BuzondeMejoraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1149AD3DDEF16FE4DDA8102A /* Pods_BuzondeMejoraTests.framework */; };
@@ -46,8 +46,8 @@
 
 /* Begin PBXFileReference section */
 		08F877D526E43E7F00E36C61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0B3213652695029400D1C983 /* Pantalla3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantalla3ViewController.swift; sourceTree = "<group>"; };
-		0B3C54DB2695E4AF0002219A /* Pantalla4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantalla4ViewController.swift; sourceTree = "<group>"; };
+		0B3213652695029400D1C983 /* FolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioViewController.swift; sourceTree = "<group>"; };
+		0B3C54DB2695E4AF0002219A /* ConsultaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultaViewController.swift; sourceTree = "<group>"; };
 		0B43FA7A2693CD300025F60D /* BuzondeMejora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuzondeMejora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B43FA7D2693CD300025F60D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B43FA7F2693CD300025F60D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		0B43FA9B2693CD310025F60D /* BuzondeMejoraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuzondeMejoraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B43FA9F2693CD310025F60D /* Prueba_de_buzonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prueba_de_buzonUITests.swift; sourceTree = "<group>"; };
 		0B43FAA12693CD310025F60D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B52557026949F6C00C74BBC /* Pantalla2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantalla2ViewController.swift; sourceTree = "<group>"; };
+		0B52557026949F6C00C74BBC /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		0BB45B2E26DBD5FE008C7D7E /* Pantalla2ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantalla2ViewController2.swift; sourceTree = "<group>"; };
 		0C9F001DD20E5539E83D0EFC /* Pods-BuzondeMejoraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzondeMejoraTests.release.xcconfig"; path = "Target Support Files/Pods-BuzondeMejoraTests/Pods-BuzondeMejoraTests.release.xcconfig"; sourceTree = "<group>"; };
 		1149AD3DDEF16FE4DDA8102A /* Pods_BuzondeMejoraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuzondeMejoraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,9 +137,9 @@
 				0B43FA7D2693CD300025F60D /* AppDelegate.swift */,
 				0B43FA7F2693CD300025F60D /* SceneDelegate.swift */,
 				0B43FA812693CD300025F60D /* ViewController.swift */,
-				0B52557026949F6C00C74BBC /* Pantalla2ViewController.swift */,
-				0B3213652695029400D1C983 /* Pantalla3ViewController.swift */,
-				0B3C54DB2695E4AF0002219A /* Pantalla4ViewController.swift */,
+				0B52557026949F6C00C74BBC /* FormViewController.swift */,
+				0B3213652695029400D1C983 /* FolioViewController.swift */,
+				0B3C54DB2695E4AF0002219A /* ConsultaViewController.swift */,
 				0B43FA832693CD300025F60D /* Main.storyboard */,
 				0B43FA862693CD300025F60D /* Assets.xcassets */,
 				0B43FA882693CD300025F60D /* LaunchScreen.storyboard */,
@@ -440,11 +440,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B43FA822693CD300025F60D /* ViewController.swift in Sources */,
-				0B3213662695029500D1C983 /* Pantalla3ViewController.swift in Sources */,
+				0B3213662695029500D1C983 /* FolioViewController.swift in Sources */,
 				0BB45B2F26DBD5FE008C7D7E /* Pantalla2ViewController2.swift in Sources */,
-				0B3C54DC2695E4AF0002219A /* Pantalla4ViewController.swift in Sources */,
+				0B3C54DC2695E4AF0002219A /* ConsultaViewController.swift in Sources */,
 				0B43FA7E2693CD300025F60D /* AppDelegate.swift in Sources */,
-				0B52557126949F6C00C74BBC /* Pantalla2ViewController.swift in Sources */,
+				0B52557126949F6C00C74BBC /* FormViewController.swift in Sources */,
 				0B43FA802693CD300025F60D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

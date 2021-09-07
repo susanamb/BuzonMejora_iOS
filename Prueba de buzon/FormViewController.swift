@@ -30,6 +30,7 @@ class Pantalla2ViewController: UIViewController {
     @IBOutlet weak var botonSeleccion2: UIButton!//boton verde del dropdown
     @IBOutlet var botonAsunto: [UIButton]!//opciones del dropdown
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var folioF: UILabel!
     
     
   
@@ -212,6 +213,8 @@ class Pantalla2ViewController: UIViewController {
             label.text = "No dejes campos vacios"
         }
         else {
+            // obtener la fecha actual
+            
             let now = Date()
 
             let formatter = DateFormatter()
@@ -221,28 +224,42 @@ class Pantalla2ViewController: UIViewController {
             formatter.dateFormat = "dd/MM/yyyy"
 
             let date = formatter.string(from: now)
+            //guarda la fecha actual en el formado dd/mes/año
             
+            //letra aleatoria para folio
             let rLetter = "QWERTYUIOPLKJHGFDSAZXCVBNM"
             
             var f1 = ""
             for _ in 0 ..< 1 {
                     f1.append(rLetter.randomElement()!)
                 }
+            //fin letra aleatoria para folio
+            self.ref.child("Quejas y Sugerencias").getData { (error, snapshot) in
+                if let error = error {
+                    print("Error getting data \(error)")
+                }else{
+                    var count = snapshot.childrenCount
+                    count = count + 1
+                    print(count)
+                    
+                }
+            }
             
-            let f2 = motivo1.prefix(1)
-            let f4 = asunto1.prefix(2)
-            let folio = (f1 + f2 + f4).uppercased()
+            let f2 = motivo1.prefix(1) // obtiene la primera letra del motivo
+            let f4 = asunto1.prefix(2) // obtiene las primeras dos letras del asunto
+            let folio = (f1 + f2 + f4).uppercased() //convierte todo el folio en mayusculas
             
+            
+            //GUARDA LOS DATOS EN LA BASE DE DATOS
             self.ref.child("Quejas y Sugerencias/\(folio)/Asunto").setValue(asunto1)
             self.ref.child("Quejas y Sugerencias/\(folio)/Categoria").setValue(motivo1)
             self.ref.child("Quejas y Sugerencias/\(folio)/Comentario").setValue(contenido)
-            if !correo.isEmpty {
+            if !correo.isEmpty { //si hay un valor en correo, lo guarda
                 self.ref.child("Quejas y Sugerencias/\(folio)/Correo").setValue(correo)
-
             }
             self.ref.child("Quejas y Sugerencias/\(folio)/Fecha").setValue(date)
             self.ref.child("Quejas y Sugerencias/\(folio)/Status").setValue("Pendiente, sin leer")
-
+            // FIN GUARDADO DE DATOS
 
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)

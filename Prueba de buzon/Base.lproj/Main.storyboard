@@ -12,7 +12,7 @@
         <!--Inicio-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="inicio" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="Prueba_de_buzon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="inicio" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="BuzondeMejora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6t9-mm-fyR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +149,7 @@
         <!--Consultas-->
         <scene sceneID="xd6-OB-C02">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="CPw-HR-HeC" customClass="Pantalla4ViewController" customModule="Prueba_de_buzon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="CPw-HR-HeC" customClass="Pantalla4ViewController" customModule="BuzondeMejora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gll-rD-Rui">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,12 +188,18 @@
                                     <action selector="action:" destination="CPw-HR-HeC" eventType="touchUpInside" id="4aN-Fd-U33"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5mF-uV-2g3">
-                                <rect key="frame" x="22" y="335" width="370" height="200"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qmb-il-FYv" userLabel="Status">
+                                <rect key="frame" x="22" y="325" width="370" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="fIB-DJ-f7u"/>
-                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H0m-aJ-kcG" userLabel="Observacion">
+                                <rect key="frame" x="22" y="360" width="370" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -205,12 +211,9 @@
                             <constraint firstItem="J1y-eZ-tEQ" firstAttribute="trailing" secondItem="5Jr-2h-Gb4" secondAttribute="trailing" constant="22" id="2Xe-RM-nan"/>
                             <constraint firstItem="5Jr-2h-Gb4" firstAttribute="leading" secondItem="J1y-eZ-tEQ" secondAttribute="leading" constant="22" id="AFy-mh-vif"/>
                             <constraint firstItem="J1y-eZ-tEQ" firstAttribute="trailing" secondItem="6ex-E7-ShH" secondAttribute="trailing" constant="22" id="BMw-GZ-rfz"/>
-                            <constraint firstItem="5mF-uV-2g3" firstAttribute="top" secondItem="5Jr-2h-Gb4" secondAttribute="bottom" constant="35" id="Cbd-CZ-gVm"/>
                             <constraint firstItem="FrL-NO-kc4" firstAttribute="top" secondItem="J1y-eZ-tEQ" secondAttribute="top" constant="10" id="Iq7-Vm-cSB"/>
                             <constraint firstItem="J1y-eZ-tEQ" firstAttribute="trailing" secondItem="FrL-NO-kc4" secondAttribute="trailing" constant="100" id="KYF-NR-dW1"/>
                             <constraint firstItem="6ex-E7-ShH" firstAttribute="top" secondItem="FwJ-2k-V2E" secondAttribute="bottom" constant="35" id="KkG-Fo-T7e"/>
-                            <constraint firstItem="5mF-uV-2g3" firstAttribute="leading" secondItem="J1y-eZ-tEQ" secondAttribute="leading" constant="22" id="NkA-iM-9td"/>
-                            <constraint firstItem="J1y-eZ-tEQ" firstAttribute="trailing" secondItem="5mF-uV-2g3" secondAttribute="trailing" constant="22" id="Nrq-XW-ZIM"/>
                             <constraint firstItem="FwJ-2k-V2E" firstAttribute="leading" secondItem="J1y-eZ-tEQ" secondAttribute="leading" constant="22" id="RPQ-Gj-o0C"/>
                             <constraint firstItem="FrL-NO-kc4" firstAttribute="top" secondItem="J1y-eZ-tEQ" secondAttribute="top" constant="10" id="UAY-Ll-RzR"/>
                             <constraint firstItem="5Jr-2h-Gb4" firstAttribute="top" secondItem="6ex-E7-ShH" secondAttribute="bottom" constant="35" id="WhG-eu-oVh"/>
@@ -223,7 +226,9 @@
                     <navigationItem key="navigationItem" title="Consultas" id="uM2-gz-Gou"/>
                     <connections>
                         <outlet property="boton1" destination="5Jr-2h-Gb4" id="lIN-pf-yEp"/>
-                        <outlet property="textview" destination="5mF-uV-2g3" id="dua-Ve-BfN"/>
+                        <outlet property="folio" destination="6ex-E7-ShH" id="HEG-9M-TdK"/>
+                        <outlet property="observacion" destination="H0m-aJ-kcG" id="LrL-4s-RUy"/>
+                        <outlet property="status" destination="qmb-il-FYv" id="a3c-YH-w5d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sn0-o1-aVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -233,7 +238,7 @@
         <!--Menu-->
         <scene sceneID="fHc-1E-ITl">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="fWC-ii-Hxo" customClass="Pantalla2ViewController" customModule="Prueba_de_buzon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="fWC-ii-Hxo" customClass="Pantalla2ViewController" customModule="BuzondeMejora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vV7-nZ-bSj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -540,7 +545,7 @@
         <!--Folio-->
         <scene sceneID="hHf-R7-vbn">
             <objects>
-                <viewController storyboardIdentifier="folio" modalPresentationStyle="fullScreen" id="qda-l4-qwz" customClass="Pantalla3ViewController" customModule="Prueba_de_buzon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="folio" modalPresentationStyle="fullScreen" id="qda-l4-qwz" customClass="Pantalla3ViewController" customModule="BuzondeMejora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cen-WF-y6T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -559,7 +564,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93Y-gW-MNJ">
                                 <rect key="frame" x="22" y="276" width="370" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
