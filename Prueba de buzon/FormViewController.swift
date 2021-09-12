@@ -18,6 +18,7 @@ class Pantalla2ViewController: UIViewController {
     var asunto1 = ""
     var correo = ""
     var contenido = ""
+    
     var ref = Database.database().reference()
 
     
@@ -31,6 +32,7 @@ class Pantalla2ViewController: UIViewController {
     @IBOutlet var botonAsunto: [UIButton]!//opciones del dropdown
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var folioF: UILabel!
+
     
     
   
@@ -76,7 +78,16 @@ class Pantalla2ViewController: UIViewController {
                          btn.alpha = 0
                      })
       
-        
+        self.ref.child("Quejas y Sugerencias").getData { (error, snapshot) in
+            if let error = error {
+                print("Error getting data \(error)")
+            }else{
+                var count = snapshot.childrenCount
+                count = count + 1
+                self.label.text = "\(count)"
+                
+            }
+        }
         
     }
     
@@ -87,7 +98,7 @@ class Pantalla2ViewController: UIViewController {
         if let btnLabel1 = sender.titleLabel?.text {
             if btnLabel1 == "Selecciona el motivo" {
                 botonSeleccion.titleLabel?.text = btnLabel1
-                label.text = btnLabel1
+                //label.text = btnLabel1
                 motivo1 = btnLabel1
             }
         }
@@ -129,7 +140,7 @@ class Pantalla2ViewController: UIViewController {
        @IBAction func btnAsunto(_ sender: UIButton) {//despliega el dropdown asunto
         if let btnLabel3 = sender.titleLabel?.text {
             if btnLabel3 == "Selecciona el asunto"{
-                label.text = btnLabel3
+                //label.text = btnLabel3
                 asunto1 = btnLabel3
             }
         }
@@ -234,54 +245,53 @@ class Pantalla2ViewController: UIViewController {
                     f1.append(rLetter.randomElement()!)
                 }
             //fin letra aleatoria para folio
-            self.ref.child("Quejas y Sugerencias").getData { (error, snapshot) in
-                if let error = error {
-                    print("Error getting data \(error)")
+            
+            //obtener numero de registros guardados
+            
+            //fin get registros guardados
+            
+            let numfol = Int(label.text!)
+            if numfol != nil{
+                let f2 = motivo1.prefix(1) // obtiene la primera letra del motivo
+                let f3 = asunto1.prefix(2).uppercased() // obtiene las primeras dos letras del asunto
+                var folio = ""
+                let leng = label.text?.count
+                
+                if leng == 1{
+                    folio = "\(f1)0\(f2)0\(f3)0\(label.text!)"
+                }else if leng == 2{
+                    folio = "\(f1)0\(f2)0\(f3)\(label.text!)"
+                }else if leng == 3{
+                    folio = "\(f1)0\(f2)\(label.text!.first!)\(f3)\(label.text!.suffix(2))"
                 }else{
-                    var count = snapshot.childrenCount
-                    count = count + 1
-                    print(count)
-                    
+                    let digitos = (label.text!).compactMap{ $0.wholeNumberValue }
+                    folio = "\(f1)\(digitos[0])\(f2)\(digitos[1])\(f3)\(label.text!.dropFirst(2))"
                 }
+                
+                
+                //GUARDA LOS DATOS EN LA BASE DE DATOS
+                self.ref.child("Quejas y Sugerencias/\(folio)/Asunto").setValue(asunto1)
+                self.ref.child("Quejas y Sugerencias/\(folio)/Categoria").setValue(motivo1)
+                self.ref.child("Quejas y Sugerencias/\(folio)/Comentario").setValue(contenido)
+                if !correo.isEmpty { //si hay un valor en correo, lo guarda
+                    self.ref.child("Quejas y Sugerencias/\(folio)/Correo").setValue(correo)
+                }
+                self.ref.child("Quejas y Sugerencias/\(folio)/Fecha").setValue(date)
+                self.ref.child("Quejas y Sugerencias/\(folio)/Status").setValue("Pendiente, sin leer")
+                // FIN GUARDADO DE DATOS
+                
             }
-            
-            let f2 = motivo1.prefix(1) // obtiene la primera letra del motivo
-            let f4 = asunto1.prefix(2) // obtiene las primeras dos letras del asunto
-            let folio = (f1 + f2 + f4).uppercased() //convierte todo el folio en mayusculas
-            
-            
-            //GUARDA LOS DATOS EN LA BASE DE DATOS
-            self.ref.child("Quejas y Sugerencias/\(folio)/Asunto").setValue(asunto1)
-            self.ref.child("Quejas y Sugerencias/\(folio)/Categoria").setValue(motivo1)
-            self.ref.child("Quejas y Sugerencias/\(folio)/Comentario").setValue(contenido)
-            if !correo.isEmpty { //si hay un valor en correo, lo guarda
-                self.ref.child("Quejas y Sugerencias/\(folio)/Correo").setValue(correo)
-            }
-            self.ref.child("Quejas y Sugerencias/\(folio)/Fecha").setValue(date)
-            self.ref.child("Quejas y Sugerencias/\(folio)/Status").setValue("Pendiente, sin leer")
-            // FIN GUARDADO DE DATOS
-
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "folio")
             self.navigationController?.pushViewController(vc, animated: true)
-            
-            label.text = "Hola"
-        }
+            }
     }
      
 
     
     
-    
 }
-
-
-
-
-
-
-
 
 
 

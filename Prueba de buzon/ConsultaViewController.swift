@@ -64,7 +64,6 @@ class Pantalla4ViewController: UIViewController {
         }else{
             status.text = "Escribe el folio a consultar"
         }
-            //textview.text = folioConsulta
         }
     }
     

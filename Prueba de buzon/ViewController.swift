@@ -7,27 +7,35 @@
 //
 
 import UIKit
-import SwiftUI
+import Firebase
 
 class ViewController: UIViewController {
 
    
 
     @IBOutlet weak var quejas: UIButton!
-    
     @IBOutlet weak var consulta: UIButton!
-  
-   
     @IBOutlet weak var casosresueltos: UILabel!
-    
     @IBOutlet weak var manualusuario: UIButton!
+    var ref = Database.database().reference()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         quejas.layer.cornerRadius = 20
         consulta.layer.cornerRadius = 20 //personaliza botones
-        casosresueltos.text = "2"
-  
+        
+        let query = ref.child("Quejas y Sugerencias").queryOrdered(byChild: "Status").queryStarting(atValue: "Resuelto")
+
+                query.observeSingleEvent(of: .value) { (snapshot) in
+                    guard snapshot.exists() != false else { return }
+                    let casosR = snapshot.childrenCount
+                    self.casosresueltos.text = "\(casosR)"
+                    
+                }
+        
+                     
+        
     }
     
   
