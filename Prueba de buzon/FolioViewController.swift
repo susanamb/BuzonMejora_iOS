@@ -12,7 +12,8 @@ class Pantalla3ViewController: UIViewController {
    
     @IBOutlet weak var boton1: UIButton!//boton de inicio
     @IBOutlet weak var label: UILabel!//label del folio
-    var folio = String()
+    var folio3 = String()
+    
    
     
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class Pantalla3ViewController: UIViewController {
         navigationItem.hidesBackButton = true
         
         
-            label.text = folio
+        label.text = folio3
         
         //se asignan a label los datos que recibio de la pantalla anterior y se reflejan
       //  motivo.text = motivos

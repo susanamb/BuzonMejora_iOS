@@ -18,6 +18,8 @@ class Pantalla2ViewController: UIViewController {
     var asunto1 = ""
     var correo = ""
     var contenido = ""
+   // var folio = "hola"
+    var folionuevo = ""
     
     var ref = Database.database().reference()
 
@@ -58,7 +60,7 @@ class Pantalla2ViewController: UIViewController {
          correo1.layer.cornerRadius = 9
          envio.layer.cornerRadius = 9   //personaliza elementos en el view
          pruebas.visibility = .gone
-        
+        print("hola como estas ")
         
         //boton motivo
          botonSeleccion.layer.cornerRadius = 6
@@ -266,6 +268,8 @@ class Pantalla2ViewController: UIViewController {
                 }else{
                     let digitos = (label.text!).compactMap{ $0.wholeNumberValue }
                     folio = "\(f1)\(digitos[0])\(f2)\(digitos[1])\(f3)\(label.text!.dropFirst(2))"
+                    
+                    //folio = folionuevo
                 }
                 
                 
@@ -279,13 +283,21 @@ class Pantalla2ViewController: UIViewController {
                 self.ref.child("Quejas y Sugerencias/\(folio)/Fecha").setValue(date)
                 self.ref.child("Quejas y Sugerencias/\(folio)/Status").setValue("Pendiente, sin leer")
                 // FIN GUARDADO DE DATOS
+                folionuevo = folio
+                print(folio)
                 
             }
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "folio")
-            self.navigationController?.pushViewController(vc, animated: true)
+            
+                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+                           let vc = storyboard.instantiateViewController(withIdentifier: "folio") as! Pantalla3ViewController
+                           vc.folio3 = folionuevo
+                           
+                           self.navigationController?.pushViewController(vc, animated: true)
             }
+        
+           
     }
      
 
