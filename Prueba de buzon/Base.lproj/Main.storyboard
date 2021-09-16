@@ -448,7 +448,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="l8F-Eq-0yL" secondAttribute="trailing" id="zOG-gZ-jdF"/>
                                                 </constraints>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Prueba de textos" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehX-3E-qCH">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Otro asunto" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehX-3E-qCH">
                                                 <rect key="frame" x="22" y="573" width="370" height="46"/>
                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.90980392160000001" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>

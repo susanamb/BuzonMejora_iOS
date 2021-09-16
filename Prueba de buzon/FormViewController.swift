@@ -12,7 +12,7 @@ import Firebase
 var ref: DatabaseReference!
 
 
-class Pantalla2ViewController: UIViewController {
+class Pantalla2ViewController: UIViewController, UITextViewDelegate {
     //variables para guardar los datos que se ingresen
     var motivo1 = ""
     var asunto1 = ""
@@ -22,9 +22,8 @@ class Pantalla2ViewController: UIViewController {
     var folionuevo = ""
     
     var ref = Database.database().reference()
-
-    
-    
+    var placeholder = "Ingresa tu queja o sugerencia"
+    let start = NSRange(location: 0, length: 0)
 
    //dropdown de Motivo
    @IBOutlet weak var botonSeleccion: UIButton!//boton verde deldropdown
@@ -60,7 +59,11 @@ class Pantalla2ViewController: UIViewController {
          correo1.layer.cornerRadius = 9
          envio.layer.cornerRadius = 9   //personaliza elementos en el view
          pruebas.visibility = .gone
-        print("hola como estas ")
+         //txtview.delegate = self
+        txtview.delegate = self
+        txtview.text = placeholder
+        txtview.textColor = UIColor.lightGray
+        
         
         //boton motivo
          botonSeleccion.layer.cornerRadius = 6
@@ -94,8 +97,30 @@ class Pantalla2ViewController: UIViewController {
     }
     
     
-  
-     
+   func textViewDidChangeSelection(_ textView: UITextView) {
+         // Moves cursor to start when tapped on textView with placeholder
+         if txtview.text == placeholder {
+             txtview.selectedRange = start
+         }
+     }
+     func textViewDidChange(_ textView: UITextView) {
+         // Manages state of text when changed
+         if txtview.text.isEmpty {
+             txtview.text = placeholder
+             txtview.textColor = .lightGray
+         } else if textView.text != placeholder {
+             txtview.textColor = .black
+         }
+     }
+     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+         // Called when you're trying to enter a character (to replace the placeholder)
+         if txtview.text == placeholder {
+             txtview.text = ""
+         }
+         return true
+     }
+
+    
     @IBAction func btnMotivo2(_ sender: UIButton) {//despliega el dropdown motivo
         if let btnLabel1 = sender.titleLabel?.text {
             if btnLabel1 == "Selecciona el motivo" {
@@ -137,7 +162,7 @@ class Pantalla2ViewController: UIViewController {
            }
        }//fin boton o dropdown de selecciona motivo
        
-       
+   
       
        @IBAction func btnAsunto(_ sender: UIButton) {//despliega el dropdown asunto
         if let btnLabel3 = sender.titleLabel?.text {
@@ -183,7 +208,7 @@ class Pantalla2ViewController: UIViewController {
                   }else if btnLabel == "Otro"{
                    botonSeleccion2.titleLabel?.text = btnLabel
                    pruebas.visibility = .visible
-              asunto1 = btnLabel
+                   asunto1 = btnLabel
            }
            
            
@@ -219,15 +244,21 @@ class Pantalla2ViewController: UIViewController {
         contenido = txtview.text!//asigna el comentario del alumno a la variable
         correo = correo1.text!//asigna el correo del alumno a la variable
         
-        if asunto1 == "Selecciona el asunto" || motivo1 == "Selecciona el motivo" || contenido == "" {
-            label.text = "No dejes campos vacios"
-        
+       
+        if asunto1 == "Selecciona el asunto" || motivo1 == "Selecciona el motivo" || contenido == placeholder || contenido == ""{
+             self.showToast12(message: "No dejes campos vacios", font: .systemFont(ofSize: 12.0))
+            
         }else if asunto1 == "Otro" && pruebas.text == ""{
-            label.text = "No dejes campos vacios"
+            self.showToast12(message: "Ingresa el asunto", font: .systemFont(ofSize: 12.0))
+            //asunto1 = pruebas.text!
         }
         else {
+            if asunto1 == "Otro"{
+                asunto1 = pruebas.text!
+            }
+          
             // obtener la fecha actual
-            
+           // asunto1 = pruebas.text!
             let now = Date()
 
             let formatter = DateFormatter()
@@ -356,6 +387,42 @@ extension UIView {//codigo para el gone del campo de texto "otro"
 }
 
 
+extension Pantalla2ViewController {
+
+func showToast2(message : String, font: UIFont) {
+
+    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+    toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    toastLabel.textColor = UIColor.white
+    toastLabel.font = font
+    toastLabel.textAlignment = .center;
+    toastLabel.text = message
+    toastLabel.alpha = 1.0
+    toastLabel.layer.cornerRadius = 10;
+    toastLabel.clipsToBounds  =  true
+    self.view.addSubview(toastLabel)
+    UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+         toastLabel.alpha = 0.0
+    }, completion: {(isCompleted) in
+        toastLabel.removeFromSuperview()
+    })
+}
+
+    
+}
 
 
 
+
+//Updated #1: Maximum length
+
+//func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    // Called when you're trying to enter a character (to replace the placeholder)
+  //  if textView.text == placeholder {
+    //    textView.text = ""
+    //} else if textView.text.count >= 175 && text.count > 0 {
+        // Now it can delete symbols but can't enter new
+      //  return false
+    //}
+    //return true
+//}

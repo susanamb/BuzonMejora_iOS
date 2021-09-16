@@ -62,7 +62,8 @@ class Pantalla4ViewController: UIViewController {
 
             //
         }else{
-            status.text = "Escribe el folio a consultar"
+           // status.text = "Escribe el folio a consultar"
+             self.showToast12(message: "Escribe el folio a consultar", font: .systemFont(ofSize: 12.0))
         }
         }
     }
