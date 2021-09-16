@@ -96,29 +96,28 @@ class Pantalla2ViewController: UIViewController, UITextViewDelegate {
         
     }
     
-    
-   func textViewDidChangeSelection(_ textView: UITextView) {
-         // Moves cursor to start when tapped on textView with placeholder
-         if txtview.text == placeholder {
-             txtview.selectedRange = start
-         }
-     }
-     func textViewDidChange(_ textView: UITextView) {
-         // Manages state of text when changed
-         if txtview.text.isEmpty {
-             txtview.text = placeholder
-             txtview.textColor = .lightGray
-         } else if textView.text != placeholder {
-             txtview.textColor = .black
-         }
-     }
-     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-         // Called when you're trying to enter a character (to replace the placeholder)
-         if txtview.text == placeholder {
-             txtview.text = ""
-         }
-         return true
-     }
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        // Moves cursor to start when tapped on textView with placeholder
+        if txtview.text == placeholder {
+            txtview.selectedRange = start
+        }
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        // Manages state of text when changed
+        if txtview.text.isEmpty {
+            txtview.text = placeholder
+            txtview.textColor = .lightGray
+        } else if txtview.text != placeholder {
+            txtview.textColor = .black
+        }
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // Called when you're trying to enter a character (to replace the placeholder)
+        if txtview.text == placeholder {
+            txtview.text = ""
+        }
+        return true
+    }
 
     
     @IBAction func btnMotivo2(_ sender: UIButton) {//despliega el dropdown motivo

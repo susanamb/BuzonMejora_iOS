@@ -39,6 +39,7 @@ class Pantalla4ViewController: UIViewController {
             self.ref.child("Quejas y Sugerencias/\(folioConsulta)/Status").getData { (error, snapshot) in
                 if let error = error {
                     self.status.text = "Ocurrió un error: \(error)"
+                    //self.showToast12(message: "Ocurrio un error: \(error)", font: <#T##UIFont#>)
                 }
                 else if snapshot.exists() {
                     self.status.text = "\(snapshot.value!)"
