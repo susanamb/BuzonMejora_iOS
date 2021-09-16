@@ -123,6 +123,7 @@ class Pantalla2ViewController: UIViewController, UITextViewDelegate {
             return true
         }
     
+    
     @IBAction func btnMotivo2(_ sender: UIButton) {//despliega el dropdown motivo
         if let btnLabel1 = sender.titleLabel?.text {
             if btnLabel1 == "Selecciona el motivo" {
