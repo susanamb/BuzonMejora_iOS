@@ -9,37 +9,53 @@
 import UIKit
 import Firebase
 
+let reachability = try! Reachability()
+
 class ViewController: UIViewController {
-
-   
-
+    
+    
+    
     @IBOutlet weak var quejas: UIButton!
     @IBOutlet weak var consulta: UIButton!
     @IBOutlet weak var casosresueltos: UILabel!
-    @IBOutlet weak var manualusuario: UIButton!
+    @IBOutlet weak var manual: UIButton!
     var ref = Database.database().reference()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         quejas.layer.cornerRadius = 20
         consulta.layer.cornerRadius = 20 //personaliza botones
         
-        let query = ref.child("Quejas y Sugerencias").queryOrdered(byChild: "Status").queryStarting(atValue: "Resuelto")
-
-                query.observeSingleEvent(of: .value) { (snapshot) in
-                    guard snapshot.exists() != false else { return }
-                    let casosR = snapshot.childrenCount
-                    self.casosresueltos.text = "\(casosR)"
-                    
-                }
+        //SI NO HAY CONEXION A INTERNET
+        reachability.whenUnreachable = { _ in
+            print("Not reachable")
+            self.quejas.isEnabled = false
+            self.consulta.isEnabled = false
+            self.casosresueltos.text = "0"
+            self.showAlert()
+        }
         
-                     
+        
+        let query = self.ref.child("Quejas y Sugerencias").queryOrdered(byChild: "Status").queryStarting(atValue: "Resuelto")
+        
+        query.observeSingleEvent(of: .value) { (snapshot) in
+            guard snapshot.exists() != false else { return }
+            let casosR = snapshot.childrenCount
+            self.casosresueltos.text = "\(casosR)"
+            
+        }
         
     }
     
-  
-
-
+    func showAlert(){
+        let alert = UIAlertController(title: "No Internet", message: "Necesitas una conexión a internet", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("Ok")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 

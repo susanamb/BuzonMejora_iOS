@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081B17B726F46B25006278D4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B17B626F46B25006278D4 /* Reachability.swift */; };
+		081B17B926F48910006278D4 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B17B826F48910006278D4 /* ManualViewController.swift */; };
+		081B17BD26F492B5006278D4 /* manual_usuario.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 081B17BC26F492B5006278D4 /* manual_usuario.pdf */; };
 		08F877D626E43E7F00E36C61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08F877D526E43E7F00E36C61 /* GoogleService-Info.plist */; };
 		08F877D726E43E7F00E36C61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08F877D526E43E7F00E36C61 /* GoogleService-Info.plist */; };
 		08F877D826E43E7F00E36C61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08F877D526E43E7F00E36C61 /* GoogleService-Info.plist */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		081B17B626F46B25006278D4 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		081B17B826F48910006278D4 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
+		081B17BC26F492B5006278D4 /* manual_usuario.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = manual_usuario.pdf; sourceTree = "<group>"; };
 		08F877D526E43E7F00E36C61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B3213652695029400D1C983 /* FolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioViewController.swift; sourceTree = "<group>"; };
 		0B3C54DB2695E4AF0002219A /* ConsultaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultaViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +146,10 @@
 				0B52557026949F6C00C74BBC /* FormViewController.swift */,
 				0B3213652695029400D1C983 /* FolioViewController.swift */,
 				0B3C54DB2695E4AF0002219A /* ConsultaViewController.swift */,
+				081B17B826F48910006278D4 /* ManualViewController.swift */,
 				0B43FA832693CD300025F60D /* Main.storyboard */,
+				081B17B626F46B25006278D4 /* Reachability.swift */,
+				081B17BC26F492B5006278D4 /* manual_usuario.pdf */,
 				0B43FA862693CD300025F60D /* Assets.xcassets */,
 				0B43FA882693CD300025F60D /* LaunchScreen.storyboard */,
 				0B43FA8B2693CD300025F60D /* Info.plist */,
@@ -307,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B43FA8A2693CD300025F60D /* LaunchScreen.storyboard in Resources */,
+				081B17BD26F492B5006278D4 /* manual_usuario.pdf in Resources */,
 				08F877D626E43E7F00E36C61 /* GoogleService-Info.plist in Resources */,
 				0B43FA872693CD300025F60D /* Assets.xcassets in Resources */,
 				0B43FA852693CD300025F60D /* Main.storyboard in Resources */,
@@ -445,6 +455,8 @@
 				0B3C54DC2695E4AF0002219A /* ConsultaViewController.swift in Sources */,
 				0B43FA7E2693CD300025F60D /* AppDelegate.swift in Sources */,
 				0B52557126949F6C00C74BBC /* FormViewController.swift in Sources */,
+				081B17B726F46B25006278D4 /* Reachability.swift in Sources */,
+				081B17B926F48910006278D4 /* ManualViewController.swift in Sources */,
 				0B43FA802693CD300025F60D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
