@@ -239,20 +239,8 @@
                     <view key="view" contentMode="scaleToFill" id="nuN-5c-HD3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MANUAAL DE USUARIOOO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6h-J7-Ngf">
-                                <rect key="frame" x="36.333333333333343" y="387.33333333333331" width="341.66666666666663" height="33.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tt7-xC-pim"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="S6h-J7-Ngf" firstAttribute="centerY" secondItem="nuN-5c-HD3" secondAttribute="centerY" id="Ikx-Tx-ID7"/>
-                            <constraint firstItem="S6h-J7-Ngf" firstAttribute="centerX" secondItem="nuN-5c-HD3" secondAttribute="centerX" id="JqN-ai-BRl"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Manual" id="D0S-GB-YTm"/>
                 </viewController>
@@ -526,7 +514,6 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="P0D-mF-Exg" firstAttribute="top" secondItem="l26-wX-HLz" secondAttribute="top" constant="35" id="CWW-XY-4y6"/>
                                     <constraint firstItem="P0D-mF-Exg" firstAttribute="top" secondItem="l26-wX-HLz" secondAttribute="top" id="DoN-Wz-6mV"/>
                                     <constraint firstAttribute="bottom" secondItem="P0D-mF-Exg" secondAttribute="bottom" id="Efl-W3-Ak7"/>
                                     <constraint firstItem="P0D-mF-Exg" firstAttribute="leading" secondItem="l26-wX-HLz" secondAttribute="leading" id="FPL-tK-ZKl"/>

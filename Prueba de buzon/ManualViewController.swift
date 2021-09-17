@@ -27,7 +27,7 @@ class ManualViewController: UIViewController {
         pdfView.autoScales = true
         
         // Load Sample.pdf file from app bundle.
-        let fileURL = Bundle.main.url(forResource: "manual_usuario", withExtension: "pdf")
+        let fileURL = Bundle.main.url(forResource: "manual_iOS", withExtension: "pdf")
         pdfView.document = PDFDocument(url: fileURL!)
     }
     
