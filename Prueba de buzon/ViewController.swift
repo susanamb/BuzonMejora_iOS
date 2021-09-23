@@ -13,8 +13,7 @@ let reachability = try! Reachability()
 
 class ViewController: UIViewController {
     
-    
-    
+
     @IBOutlet weak var quejas: UIButton!
     @IBOutlet weak var consulta: UIButton!
     @IBOutlet weak var casosresueltos: UILabel!
@@ -27,25 +26,43 @@ class ViewController: UIViewController {
         quejas.layer.cornerRadius = 20
         consulta.layer.cornerRadius = 20 //personaliza botones
         
-        //SI NO HAY CONEXION A INTERNET
-        reachability.whenUnreachable = { _ in
-            print("Not reachable")
-            self.quejas.isEnabled = false
-            self.consulta.isEnabled = false
-            self.casosresueltos.text = "0"
-            self.showAlert()
+        
+        reachability.whenReachable = { _ in
+                
+                self.contador()
+                self.quejas.isEnabled = true
+                self.consulta.isEnabled = true
+        
         }
         
+        reachability.whenUnreachable = { _ in
+                
+                self.quejas.isEnabled = false
+                self.consulta.isEnabled = false
+                self.casosresueltos.text = "0"
+                self.showAlert()
+        }
         
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Ocurrió un error")
+        }
+        
+    }
+    deinit {
+        reachability.stopNotifier()
+
+    }
+    
+    func contador(){
         let query = self.ref.child("Quejas y Sugerencias").queryOrdered(byChild: "Status").queryStarting(atValue: "Resuelto")
         
         query.observeSingleEvent(of: .value) { (snapshot) in
             guard snapshot.exists() != false else { return }
             let casosR = snapshot.childrenCount
             self.casosresueltos.text = "\(casosR)"
-            
         }
-        
     }
     
     func showAlert(){
